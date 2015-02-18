@@ -35,6 +35,7 @@
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.buttonLine = new System.Windows.Forms.ToolStripButton();
             this.buttonEllipse = new System.Windows.Forms.ToolStripButton();
+            this.buttonRectangle = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.penWidthBox = new System.Windows.Forms.ToolStripTextBox();
@@ -103,12 +104,13 @@
             this.toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.buttonLine,
-            this.buttonEllipse});
+            this.buttonEllipse,
+            this.buttonRectangle});
             this.toolStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Margin = new System.Windows.Forms.Padding(0, 0, 1, 0);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(45, 538);
+            this.toolStrip.Size = new System.Drawing.Size(64, 538);
             this.toolStrip.TabIndex = 5;
             this.toolStrip.Text = "toolStrip1";
             // 
@@ -119,7 +121,7 @@
             this.buttonLine.Image = ((System.Drawing.Image)(resources.GetObject("buttonLine.Image")));
             this.buttonLine.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.buttonLine.Name = "buttonLine";
-            this.buttonLine.Size = new System.Drawing.Size(42, 19);
+            this.buttonLine.Size = new System.Drawing.Size(61, 19);
             this.buttonLine.Text = "Line";
             this.buttonLine.Click += new System.EventHandler(this.buttonLine_Click);
             // 
@@ -129,9 +131,19 @@
             this.buttonEllipse.Image = ((System.Drawing.Image)(resources.GetObject("buttonEllipse.Image")));
             this.buttonEllipse.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.buttonEllipse.Name = "buttonEllipse";
-            this.buttonEllipse.Size = new System.Drawing.Size(42, 19);
+            this.buttonEllipse.Size = new System.Drawing.Size(61, 19);
             this.buttonEllipse.Text = "Ellipse";
             this.buttonEllipse.Click += new System.EventHandler(this.buttonEllipse_Click);
+            // 
+            // buttonRectangle
+            // 
+            this.buttonRectangle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.buttonRectangle.Image = ((System.Drawing.Image)(resources.GetObject("buttonRectangle.Image")));
+            this.buttonRectangle.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.buttonRectangle.Name = "buttonRectangle";
+            this.buttonRectangle.Size = new System.Drawing.Size(61, 19);
+            this.buttonRectangle.Text = "Rectangle";
+            this.buttonRectangle.Click += new System.EventHandler(this.buttonRectangle_Click);
             // 
             // toolStrip1
             // 
@@ -146,9 +158,9 @@
             this.toolStripSeparator1,
             this.toolStripLabel3,
             this.colorButton});
-            this.toolStrip1.Location = new System.Drawing.Point(45, 537);
+            this.toolStrip1.Location = new System.Drawing.Point(64, 537);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(739, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(720, 25);
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -262,6 +274,7 @@
         private System.Windows.Forms.ToolStripButton buttonEllipse;
         private System.Windows.Forms.ToolStripMenuItem undoActionButton;
         private System.Windows.Forms.ToolStripMenuItem redoActionButton;
+        private System.Windows.Forms.ToolStripButton buttonRectangle;
     }
 }
 

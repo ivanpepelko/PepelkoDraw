@@ -27,7 +27,9 @@ namespace PepelkoDraw {
 
         enum Tools {
             Line,
-            Ellipse
+            Ellipse,
+            Rectangle,
+            Exception
         }
 
         public MainWindow() {
@@ -70,6 +72,8 @@ namespace PepelkoDraw {
                     return new Line(sx, sy, ex, ey, colorPicker.Color, PenWidth);
                 case Tools.Ellipse:
                     return new Ellipse(sx, sy, ex, ey, colorPicker.Color, PenWidth);
+                case Tools.Rectangle:
+                    return new Rectangle(sx, sy, ex, ey, colorPicker.Color, PenWidth);
             }
         }
 
@@ -81,5 +85,9 @@ namespace PepelkoDraw {
             SelectedTool = Tools.Ellipse;
         }
 
+        private void buttonRectangle_Click(object sender, EventArgs e) {
+            SelectedTool = Tools.Rectangle;
+        }
+        
     }
 }
