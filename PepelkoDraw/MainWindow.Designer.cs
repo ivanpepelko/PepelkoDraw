@@ -29,6 +29,7 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoActionButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.redoActionButton = new System.Windows.Forms.ToolStripMenuItem();
             this.colorPicker = new System.Windows.Forms.ColorDialog();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStrip = new System.Windows.Forms.ToolStrip();
@@ -43,7 +44,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.colorButton = new System.Windows.Forms.ToolStripButton();
-            this.redoActionButton = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -84,6 +84,14 @@
             this.undoActionButton.Text = "Undo";
             this.undoActionButton.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
+            // redoActionButton
+            // 
+            this.redoActionButton.Enabled = false;
+            this.redoActionButton.Name = "redoActionButton";
+            this.redoActionButton.Size = new System.Drawing.Size(46, 20);
+            this.redoActionButton.Text = "Redo";
+            this.redoActionButton.Click += new System.EventHandler(this.redoActionButton_Click);
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
@@ -113,6 +121,7 @@
             this.buttonLine.Name = "buttonLine";
             this.buttonLine.Size = new System.Drawing.Size(42, 19);
             this.buttonLine.Text = "Line";
+            this.buttonLine.Click += new System.EventHandler(this.buttonLine_Click);
             // 
             // buttonEllipse
             // 
@@ -122,6 +131,7 @@
             this.buttonEllipse.Name = "buttonEllipse";
             this.buttonEllipse.Size = new System.Drawing.Size(42, 19);
             this.buttonEllipse.Text = "Ellipse";
+            this.buttonEllipse.Click += new System.EventHandler(this.buttonEllipse_Click);
             // 
             // toolStrip1
             // 
@@ -200,14 +210,6 @@
             this.colorButton.Size = new System.Drawing.Size(23, 22);
             this.colorButton.Text = "toolStripButton2";
             this.colorButton.Click += new System.EventHandler(this.colorButton_Click);
-            // 
-            // redoActionButton
-            // 
-            this.redoActionButton.Enabled = false;
-            this.redoActionButton.Name = "redoActionButton";
-            this.redoActionButton.Size = new System.Drawing.Size(46, 20);
-            this.redoActionButton.Text = "Redo";
-            this.redoActionButton.Click += new System.EventHandler(this.redoActionButton_Click);
             // 
             // MainWindow
             // 

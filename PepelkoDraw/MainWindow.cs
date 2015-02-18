@@ -23,47 +23,20 @@ namespace PepelkoDraw {
         List<GraphicalObject> RedoBuffer = new List<GraphicalObject>();
         GraphicalObject CurrentObject;
         Graphics MasterGraphics;
+        Tools SelectedTool = Tools.Line;
+
+        enum Tools {
+            Line,
+            Ellipse
+        }
 
         public MainWindow() {
             InitializeComponent();
             InitSettings();
         }
 
-        private void MainWindow_Paint(object sender, PaintEventArgs e) {
-            MasterGraphics = e.Graphics;
-
-            if (IsMouseDown) {
-                CurrentObject = new Line(StartX, StartY, EndX, EndY, colorPicker.Color, PenWidth);
-                CurrentObject.Draw(MasterGraphics);
-            }
-
-            foreach (GraphicalObject go in Objects) {
-                go.Draw(MasterGraphics);
-            }
-
-            if (Objects.Count == 0) {
-                undoActionButton.Enabled = false;
-            } else {
-                undoActionButton.Enabled = true;
-            }
-
-            if (RedoBuffer.Count == 0) {
-                redoActionButton.Enabled = false;
-                RedoEnabled = false;
-            } else {
-                redoActionButton.Enabled = true;
-            }
-
-        }
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
             Application.Exit();
-        }
-
-        private void InitSettings() {
-            colorButton.BackColor = colorPicker.Color;
-            penWidthBox.Text = PenWidth.ToString();
-
         }
 
         private void buttonWidthUp_Click(object sender, EventArgs e) {
@@ -85,49 +58,27 @@ namespace PepelkoDraw {
             }
         }
 
-        private void colorButton_Click(object sender, EventArgs e) {
-            colorPicker.ShowDialog();
+        private void InitSettings() {
             colorButton.BackColor = colorPicker.Color;
+            penWidthBox.Text = PenWidth.ToString();
         }
 
-        private void MainWindow_MouseDown(object sender, MouseEventArgs e) {
-            IsMouseDown = true;
-            StartX = e.X;
-            StartY = e.Y;
-        }
-
-        private void MainWindow_MouseUp(object sender, MouseEventArgs e) {
-            IsMouseDown = false;
-
-            Objects.Add(new Line(StartX, StartY, e.X, e.Y, colorPicker.Color, PenWidth));
-
-            RedoEnabled = false;
-            RedoBuffer.Clear();
-            Refresh();
-        }
-
-
-        private void MainWindow_MouseMove(object sender, MouseEventArgs e) {
-            EndX = e.X;
-            EndY = e.Y;
-            Refresh();
-        }
-
-        private void undoToolStripMenuItem_Click(object sender, EventArgs e) {
-            if (undoActionButton.Enabled) {
-                RedoBuffer.Add(Objects.Last());
-                Objects.Remove(Objects.Last());
-                RedoEnabled = true;
-                Refresh();
+        private GraphicalObject CreateObject(Tools st, int sx, int sy, int ex, int ey) {
+            switch (st) {
+                default:
+                case Tools.Line:
+                    return new Line(sx, sy, ex, ey, colorPicker.Color, PenWidth);
+                case Tools.Ellipse:
+                    return new Ellipse(sx, sy, ex, ey, colorPicker.Color, PenWidth);
             }
         }
 
-        private void redoActionButton_Click(object sender, EventArgs e) {
-            if (redoActionButton.Enabled && RedoEnabled) {
-                Objects.Add(RedoBuffer.Last());
-                RedoBuffer.Remove(RedoBuffer.Last());
-                Refresh();
-            }
+        private void buttonLine_Click(object sender, EventArgs e) {
+            SelectedTool = Tools.Line;
+        }
+
+        private void buttonEllipse_Click(object sender, EventArgs e) {
+            SelectedTool = Tools.Ellipse;
         }
 
     }
