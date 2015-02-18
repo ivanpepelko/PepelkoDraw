@@ -45,6 +45,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.colorButton = new System.Windows.Forms.ToolStripButton();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -65,6 +66,7 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
@@ -73,7 +75,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -185,6 +187,7 @@
             // 
             // buttonWidthUp
             // 
+            this.buttonWidthUp.AutoToolTip = false;
             this.buttonWidthUp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.buttonWidthUp.Image = ((System.Drawing.Image)(resources.GetObject("buttonWidthUp.Image")));
             this.buttonWidthUp.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -195,6 +198,7 @@
             // 
             // buttonWidthDown
             // 
+            this.buttonWidthDown.AutoToolTip = false;
             this.buttonWidthDown.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.buttonWidthDown.Image = ((System.Drawing.Image)(resources.GetObject("buttonWidthDown.Image")));
             this.buttonWidthDown.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -216,12 +220,19 @@
             // 
             // colorButton
             // 
+            this.colorButton.AutoToolTip = false;
             this.colorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.colorButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.colorButton.Name = "colorButton";
             this.colorButton.Size = new System.Drawing.Size(23, 22);
             this.colorButton.Text = "toolStripButton2";
             this.colorButton.Click += new System.EventHandler(this.colorButton_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Text = "Save";
             // 
             // MainWindow
             // 
@@ -239,6 +250,7 @@
             this.Name = "MainWindow";
             this.Text = "PepelkoDraw";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.MainWindow_Paint);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MainWindow_KeyPress);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainWindow_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainWindow_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainWindow_MouseUp);
@@ -275,6 +287,7 @@
         private System.Windows.Forms.ToolStripMenuItem undoActionButton;
         private System.Windows.Forms.ToolStripMenuItem redoActionButton;
         private System.Windows.Forms.ToolStripButton buttonRectangle;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
     }
 }
 

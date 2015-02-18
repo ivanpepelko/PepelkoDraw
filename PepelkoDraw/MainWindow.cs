@@ -28,8 +28,7 @@ namespace PepelkoDraw {
         enum Tools {
             Line,
             Ellipse,
-            Rectangle,
-            Exception
+            Rectangle
         }
 
         public MainWindow() {
@@ -65,7 +64,7 @@ namespace PepelkoDraw {
             penWidthBox.Text = PenWidth.ToString();
         }
 
-        private GraphicalObject CreateObject(Tools st, int sx, int sy, int ex, int ey) {
+        private GraphicalObject CreateGraphicalObject(Tools st, int sx, int sy, int ex, int ey) {
             switch (st) {
                 default:
                 case Tools.Line:
@@ -88,6 +87,19 @@ namespace PepelkoDraw {
         private void buttonRectangle_Click(object sender, EventArgs e) {
             SelectedTool = Tools.Rectangle;
         }
-        
+
+        private void MainWindow_KeyPress(object sender, KeyPressEventArgs e) {
+
+            switch (e.KeyChar) {
+                case (char)26:
+                    if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift) {
+                        redoActionButton_Click(sender, e);
+                    } else if (Control.ModifierKeys != Keys.Shift && Control.ModifierKeys == Keys.Control) {
+                        undoToolStripMenuItem_Click(sender, e);
+                    }
+                    break;
+            }
+        }
+
     }
 }
