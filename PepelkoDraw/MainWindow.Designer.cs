@@ -23,15 +23,16 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoActionButton = new System.Windows.Forms.ToolStripMenuItem();
             this.redoActionButton = new System.Windows.Forms.ToolStripMenuItem();
             this.colorPicker = new System.Windows.Forms.ColorDialog();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.buttonLine = new System.Windows.Forms.ToolStripButton();
             this.buttonEllipse = new System.Windows.Forms.ToolStripButton();
@@ -45,7 +46,9 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.colorButton = new System.Windows.Forms.ToolStripButton();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -66,14 +69,40 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
+            this.openToolStripMenuItem,
             this.saveToolStripMenuItem,
+            this.toolStripSeparator2,
             this.exitToolStripMenuItem});
+            this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(53, 20);
             this.toolStripMenuItem1.Text = "File";
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripMenuItem.Image")));
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuItem.Image")));
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
             // 
             // exitToolStripMenuItem
             // 
+            this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
@@ -82,23 +111,20 @@
             // undoActionButton
             // 
             this.undoActionButton.Enabled = false;
+            this.undoActionButton.Image = ((System.Drawing.Image)(resources.GetObject("undoActionButton.Image")));
             this.undoActionButton.Name = "undoActionButton";
-            this.undoActionButton.Size = new System.Drawing.Size(48, 20);
+            this.undoActionButton.Size = new System.Drawing.Size(64, 20);
             this.undoActionButton.Text = "Undo";
             this.undoActionButton.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
             // redoActionButton
             // 
             this.redoActionButton.Enabled = false;
+            this.redoActionButton.Image = ((System.Drawing.Image)(resources.GetObject("redoActionButton.Image")));
             this.redoActionButton.Name = "redoActionButton";
-            this.redoActionButton.Size = new System.Drawing.Size(46, 20);
+            this.redoActionButton.Size = new System.Drawing.Size(62, 20);
             this.redoActionButton.Text = "Redo";
             this.redoActionButton.Click += new System.EventHandler(this.redoActionButton_Click);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // toolStrip
             // 
@@ -112,38 +138,38 @@
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Margin = new System.Windows.Forms.Padding(0, 0, 1, 0);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(64, 538);
+            this.toolStrip.Size = new System.Drawing.Size(24, 538);
             this.toolStrip.TabIndex = 5;
             this.toolStrip.Text = "toolStrip1";
             // 
             // buttonLine
             // 
             this.buttonLine.CheckOnClick = true;
-            this.buttonLine.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.buttonLine.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.buttonLine.Image = ((System.Drawing.Image)(resources.GetObject("buttonLine.Image")));
             this.buttonLine.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.buttonLine.Name = "buttonLine";
-            this.buttonLine.Size = new System.Drawing.Size(61, 19);
+            this.buttonLine.Size = new System.Drawing.Size(21, 20);
             this.buttonLine.Text = "Line";
             this.buttonLine.Click += new System.EventHandler(this.buttonLine_Click);
             // 
             // buttonEllipse
             // 
-            this.buttonEllipse.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.buttonEllipse.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.buttonEllipse.Image = ((System.Drawing.Image)(resources.GetObject("buttonEllipse.Image")));
             this.buttonEllipse.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.buttonEllipse.Name = "buttonEllipse";
-            this.buttonEllipse.Size = new System.Drawing.Size(61, 19);
+            this.buttonEllipse.Size = new System.Drawing.Size(21, 20);
             this.buttonEllipse.Text = "Ellipse";
             this.buttonEllipse.Click += new System.EventHandler(this.buttonEllipse_Click);
             // 
             // buttonRectangle
             // 
-            this.buttonRectangle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.buttonRectangle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.buttonRectangle.Image = ((System.Drawing.Image)(resources.GetObject("buttonRectangle.Image")));
             this.buttonRectangle.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.buttonRectangle.Name = "buttonRectangle";
-            this.buttonRectangle.Size = new System.Drawing.Size(61, 19);
+            this.buttonRectangle.Size = new System.Drawing.Size(21, 20);
             this.buttonRectangle.Text = "Rectangle";
             this.buttonRectangle.Click += new System.EventHandler(this.buttonRectangle_Click);
             // 
@@ -160,11 +186,11 @@
             this.toolStripSeparator1,
             this.toolStripLabel3,
             this.colorButton});
-            this.toolStrip1.Location = new System.Drawing.Point(64, 537);
+            this.toolStrip1.Location = new System.Drawing.Point(24, 537);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(720, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(760, 25);
             this.toolStrip1.TabIndex = 6;
-            this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.Text = "3";
             // 
             // toolStripLabel1
             // 
@@ -228,11 +254,25 @@
             this.colorButton.Text = "toolStripButton2";
             this.colorButton.Click += new System.EventHandler(this.colorButton_Click);
             // 
-            // saveToolStripMenuItem
+            // saveFileDialog
             // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.saveToolStripMenuItem.Text = "Save";
+            this.saveFileDialog.DefaultExt = "xml";
+            this.saveFileDialog.Filter = "Xml files|*.xml";
+            this.saveFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog_FileOk);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.DefaultExt = "xml";
+            this.openFileDialog.Filter = "Xml files|*.xml";
+            this.openFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog_FileOk);
+            // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem.Image")));
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -271,7 +311,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ColorDialog colorPicker;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton buttonLine;
         private System.Windows.Forms.ToolStrip toolStrip1;
@@ -288,6 +327,11 @@
         private System.Windows.Forms.ToolStripMenuItem redoActionButton;
         private System.Windows.Forms.ToolStripButton buttonRectangle;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
     }
 }
 
