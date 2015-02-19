@@ -117,7 +117,7 @@ namespace PepelkoDraw {
         private void saveFileDialog_FileOk(object sender, CancelEventArgs e) {
 
             string filename = saveFileDialog.FileName;
-
+            
             XmlDocument doc = new XmlDocument();
             XmlWriter xw = XmlWriter.Create(filename);
 
